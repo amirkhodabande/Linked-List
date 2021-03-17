@@ -30,6 +30,25 @@ class linkedList
         $this->size++;
     }
 
+    //    Insert Last Node
+    public function insertLast($data)
+    {
+        $node = new Node($data);
+        $current = null;
+
+        if (!$this->head)
+            $this->head = $node;
+        else {
+            $current = $this->head;
+
+            while ($current->next)
+                $current = $current->next;
+
+            $current->next = $node;
+        }
+        $this->size++;
+    }
+
     //    Print List Data
     public function printListData()
     {
@@ -47,6 +66,11 @@ $ll = new linkedList();
 /* Insert First*/
 $ll->insertFirst(100);
 $ll->insertFirst(200);
+/* End*/
+
+/* Insert Last*/
+$ll->insertLast(300);
+$ll->insertLast(400);
 /* End*/
 
 $ll->printListData();
