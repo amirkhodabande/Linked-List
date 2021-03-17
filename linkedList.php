@@ -118,6 +118,13 @@ class linkedList
         $this->size--;
     }
 
+    //    Clear List
+    public function clearList()
+    {
+        $this->head = null;
+        $this->size = 0;
+    }
+
     //    Print List Data
     public function printListData()
     {
@@ -156,5 +163,7 @@ echo "<br><hr><br>";
 $ll->printListData();
 
 //$ll->removeAt(5);
+
+//$ll->clearList();
 
 
