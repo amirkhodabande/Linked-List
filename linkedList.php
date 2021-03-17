@@ -49,6 +49,50 @@ class linkedList
         $this->size++;
     }
 
+
+//    Insert At Index
+    public function insertAtIndex($data, $index)
+    {
+        if ($index > 0 && $index > $this->size) return;
+
+        if ($index === 0) {
+            $this->head = new Node($data, $this->head);
+            return;
+        }
+
+        $node = new Node($data);
+        $current = $previous = null;
+
+        $current = $this->head;
+        $count = 0;
+
+        while ($count < $index) {
+            $previous = $current;
+            $count++;
+            $current = $current->next;
+        }
+
+        $node->next = $current;
+        $previous->next = $node;
+
+        $this->size++;
+    }
+
+//    Get At Index
+    public function getAt($index)
+    {
+        $current = $this->head;
+        $count = 0;
+
+        while ($current) {
+            if ($count === $index) {
+                echo $current->data;
+            }
+            $count++;
+            $current = $current->next;
+        }
+    }
+
     //    Print List Data
     public function printListData()
     {
@@ -72,6 +116,17 @@ $ll->insertFirst(200);
 $ll->insertLast(300);
 $ll->insertLast(400);
 /* End*/
+
+/* Insert At Index*/
+$ll->insertAtIndex('InsertAtIndex1', 1);
+$ll->insertAtIndex('InsertAtIndex5', 5);
+/* End*/
+
+/* Get At Index*/
+echo "Get At Index : <br>";
+$ll->getAt(2);
+echo "<br><hr><br>";
+/* End */
 
 $ll->printListData();
 
