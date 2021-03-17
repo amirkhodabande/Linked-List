@@ -125,6 +125,22 @@ class linkedList
         $this->size = 0;
     }
 
+    //    Reverse List Data
+    public function reverseList()
+    {
+        $previous = $next = null;
+        $current = $this->head;
+
+        while ($current) {
+            $next = $current->next;
+            $current->next = $previous;
+            $previous = $current;
+            $current = $next;
+        }
+
+        $this->head = $previous;
+    }
+
     //    Print List Data
     public function printListData()
     {
@@ -165,5 +181,11 @@ $ll->printListData();
 //$ll->removeAt(5);
 
 //$ll->clearList();
+
+/* Reverse The List*/
+echo "<hr><br>Reverse :<br>";
+$ll->reverseList();
+$ll->printListData();
+/* End*/
 
 
