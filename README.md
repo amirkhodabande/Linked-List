@@ -1,5 +1,3 @@
-# Single page shopping app
-
 ### A simple php class to do some work on Linked Lists. 
 
 - PHP
