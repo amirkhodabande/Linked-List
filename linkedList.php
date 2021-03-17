@@ -93,6 +93,31 @@ class linkedList
         }
     }
 
+    //    Remove At Index
+    public function removeAt($index)
+    {
+        if ($index > 0 && $index > $this->size) return;
+
+        $current = $this->head;
+        $previous = null;
+        $count = 0;
+
+        if ($index === 0) {
+            $this->head = $current->next;
+            return;
+        } else {
+            while ($count < $index) {
+                $count++;
+                $previous = $current;
+                $current = $current->next;
+            }
+
+            $previous->next = $current->next;
+        }
+
+        $this->size--;
+    }
+
     //    Print List Data
     public function printListData()
     {
@@ -129,5 +154,7 @@ echo "<br><hr><br>";
 /* End */
 
 $ll->printListData();
+
+//$ll->removeAt(5);
 
 
